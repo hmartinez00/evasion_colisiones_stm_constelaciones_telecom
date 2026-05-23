@@ -1,0 +1,41 @@
+\section{Estado del Arte y Antecedentes}
+
+\subsection{2.1 Space Situational Awareness (SSA) y STM}
+
+Resulta revelador observar cómo el concepto de Space Traffic Management ha evolucionado de un marco regulatorio relativamente laxo a una necesidad operativa crítica en menos de una década. Lejos de ser un asunto resuelto, la literatura reciente insiste en que el aumento exponencial de objetos en LEO exige coordinar no solo seguimiento, sino también la sincronización proactiva de maniobras entre múltiples actores.
+
+Uno de los documentos más citados sobre estos desafíos sigue siendo el análisis de Sorge y Ailor, quienes destacaron que las mega-constelaciones introducen complejidades de escala nunca antes vistas, tanto en términos técnicos como de gobernanza \cite{sorge2020stm}. En muchos casos estudiados, los sistemas de SSA tradicionales, basados principalmente en observaciones ground-based, tienden a mostrar saturación ante volúmenes de datos crecientes y la necesidad de actualizaciones casi en tiempo real. Aunque se han logrado avances notables en catalogación y predicción, cabe matizar que la latencia inherente y la dependencia de comunicaciones limitan su efectividad cuando decenas de miles de satélites operan en configuraciones dinámicas.
+
+Esta situación plantea un interrogante persistente: ¿hasta qué punto los enfoques centralizados pueden escalar sin comprometer la seguridad orbital general?
+
+\subsection{2.2 Algoritmos de Evasión de Colisiones}
+
+Particularmente llamativo es el creciente interés en trasladar capacidades de decisión hacia los propios satélites. Aunque los métodos convencionales de \emph{conjunction assessment} han aportado soluciones robustas desde tierra, muestran limitaciones claras en escenarios de alta densidad donde el tiempo de respuesta se mide en minutos u horas.
+
+Resulta instructivo contrastar estas aproximaciones con prototipos que exploran la autonomía onboard. Probe y colaboradores desarrollaron una infraestructura prototipo que combina un hub terrestre para sincronización con software de vuelo capaz de realizar evaluación autónoma de conjunciones y planificación de maniobras de evasión \cite{probe2022autonomous}. Esta arquitectura híbrida parece sugerir un camino prometedor, aunque no exento de desafíos: la fiabilidad de los sensores embarcados y la validación en entornos reales siguen siendo puntos críticos que requieren mayor maduración.
+
+En la práctica, los algoritmos de evasión oscilan entre enfoques basados en optimización determinista y aquellos que incorporan elementos probabilísticos o de inteligencia artificial. Ninguno resulta universalmente superior; en muchos casos estudiados, la elección depende fuertemente de la disponibilidad de datos precisos de seguimiento y de las restricciones de propelente.
+
+\begin{table}[t]
+\centering
+\caption{Comparativa de métodos de evasión de colisiones en constelaciones LEO.}
+\label{tab:comparativa_evasion}
+\begin{tabular}{lccc}
+\toprule
+Método & Enfoque & Ventajas & Limitaciones \\
+\midrule
+Ground-based (CARA-like) & Centralizado & Alta precisión de seguimiento & Latencia elevada \\
+Onboard autónomo & Distribuido & Respuesta rápida & Sensores limitados \\
+Híbrido (ground + onboard) & Coordinado & Balance resiliencia & Complejidad de integración \\
+Phasing optimization & Diseño preventivo & Bajo consumo propelente & Rigidez ante imprevistos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{2.3 Casos de Estudio: Starlink y Kuiper}
+
+Uno de los desafíos persistentes que surge al analizar mega-constelaciones comerciales radica en equilibrar la densidad operativa con la minimización de riesgos intra-constelacionales. 
+
+Liang y sus colaboradores realizaron un análisis detallado del parámetro de phasing $F$ en las arquitecturas de Starlink Phase 1 Version 3 y Kuiper Shell 2 \cite{liang2021phasing}. Sus simulaciones revelaron que, de los múltiples valores posibles de $F$, solo unos pocos maximizan las distancias mínimas entre satélites de diferentes planos orbitales. Concretamente, valores óptimos como $F=17$ para Starlink y $F=11$ para Kuiper logran separaciones mínimas superiores a 55 km en configuraciones nominales. Estos resultados subrayan que, aunque el diseño de fase ayuda sustancialmente, no elimina por completo la necesidad de maniobras reactivas ante objetos externos o fallos inesperados.
+
+En la operación real, tanto Starlink como los planes de Kuiper han demostrado que las maniobras de evasión se han convertido en rutina. No obstante, esta normalización no debe interpretarse como madurez plena del sistema. La frecuencia de estas acciones plantea interrogantes sobre el consumo acumulado de propelente y la degradación acelerada de la vida útil de los satélites, aspectos que conectan directamente con la sostenibilidad a largo plazo discutida en la sección anterior.

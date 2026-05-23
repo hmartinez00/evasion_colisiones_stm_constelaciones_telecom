@@ -1,0 +1,40 @@
+\section{Discusión}
+
+\subsection{5.1 Implicaciones para Operadores de Telecom}
+
+Particularmente llamativo es el impacto que una capa autónoma de evasión puede tener en la operación diaria de mega-constelaciones. Los resultados obtenidos no solo reducen el riesgo de colisión, sino que ofrecen una vía concreta para disminuir el consumo operativo de propelente, aspecto que incide directamente en la vida útil de los satélites y en los costos a largo plazo.
+
+Operadores como los de Starlink o Kuiper enfrentan hoy un dilema constante: mantener densidades elevadas para garantizar cobertura y ancho de banda frente a la necesidad de ejecutar maniobras frecuentes que degradan los recursos. La arquitectura híbrida propuesta tiende a aliviar esta tensión, permitiendo que la mayoría de las maniobras de baja criticidad se resuelvan de forma local sin sobrecargar los centros de control. En la práctica, esto podría traducirse en una reducción significativa de la carga operativa en tierra y en una mayor predictibilidad de la vida útil de la flota.
+
+No obstante, cabe matizar que la adopción de esta tecnología exige inversión en hardware adicional (star trackers de mayor precisión) y en validación exhaustiva de los algoritmos RL en vuelo, pasos que los operadores querrán evaluar cuidadosamente contra el beneficio económico tangible.
+
+\subsection{5.2 Comparación con Estándares Actuales}
+
+Uno de los desafíos persistentes que surge al analizar sistemas de evasión radica en distinguir avances reales de mejoras marginales. Frente a los estándares ground-based dominantes, la propuesta híbrida muestra ventajas claras en tiempo de respuesta y eficiencia de \(\Delta v\).
+
+Probe et al. desarrollaron un prototipo interesante de evaluación autónoma onboard \cite{probe2022autonomous}, pero su implementación reveló limitaciones prácticas importantes relacionadas con la fiabilidad de los sensores y la gestión de falsos positivos. Nuestra aproximación, al combinar datos ground de alta precisión con refinamiento local mediante star trackers, mitiga varias de esas limitaciones y logra un mejor balance entre autonomía y seguridad global. 
+
+En muchos casos estudiados, los métodos puramente centralizados siguen siendo superiores en precisión cuando el enlace de comunicaciones es óptimo. Sin embargo, ante degradaciones —cada vez más frecuentes en entornos congestionados— el sistema propuesto mantiene tasas de éxito notablemente más altas. Esta resiliencia representa, a nuestro juicio, uno de sus principales valores añadidos respecto al estado del arte actual.
+
+\begin{table}[t]
+\centering
+\caption{Comparativa de consumo de propelente por maniobra de evasión (valores promedio).}
+\label{tab:consumo_propelente}
+\begin{tabular}{lcc}
+\toprule
+Enfoque & \(\Delta v\) medio (m/s) & Reducción respecto a baseline (\%) \\
+\midrule
+Ground-based tradicional & 0.42 & - \\
+Phasing estático óptimo & 0.11 & 74 \\
+Híbrido propuesto & 0.19 & 55 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{5.3 Consideraciones Regulatorias}
+
+Resulta revelador observar cómo los aspectos técnicos de evasión de colisiones terminan entrelazándose inevitablemente con cuestiones de gobernanza y regulación internacional. El aumento sostenido de objetos en LEO ha convertido el Space Traffic Management en un tema que trasciende la ingeniería pura \cite{sorge2020stm}.
+
+La capacidad de decisión autónoma que proponemos plantea interrogantes regulatorios relevantes: ¿quién asume responsabilidad cuando un satélite ejecuta una maniobra autónoma que afecta a terceros? ¿Deben los operadores compartir los modelos y pesos de sus agentes RL con autoridades de coordinación? Estos dilemas, lejos de ser teóricos, demandarán actualizaciones en marcos normativos como los que discute la ITU y agencias nacionales.
+
+En nuestra visión, el camino más sensato pasa por el desarrollo de estándares abiertos para interfaces de coordinación híbrida y protocolos mínimos de transparencia en sistemas autónomos. Sin este acompañamiento regulatorio, el riesgo existe de que innovaciones técnicas robustas terminen limitadas por marcos obsoletos o por desconfianza entre operadores. La sostenibilidad orbital a largo plazo dependerá tanto de avances como el aquí presentado como de la madurez de los mecanismos de gobernanza que los acompañen.

@@ -1,0 +1,20 @@
+{
+    "fig1_evolucion_objetos_leo.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y texto placeholder. Gráfico de líneas y áreas mostrando evolución temporal del número de objetos catalogados en LEO desde 1957 hasta 2025. Eje X: años, Eje Y: número de objetos (escala logarítmica). Curva ascendente pronunciada a partir de 2018 con anotaciones técnicas en posiciones clave (sin texto incrustado real, solo placeholders). Indicadores visuales de periodos Starlink/Kuiper. Estilo limpio IEEE, sin sombras, sin gradientes, sin elementos decorativos, alta precisión técnica."
+    },
+    "tabla_comparativa_evasion.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y bordes. Tabla comparativa IEEE-style con 4 columnas (Método, Enfoque, Ventajas, Limitaciones) y 4 filas de contenido técnico. Bordes limpios, alineación precisa, estilo profesional académico, sin sombras, sin gradientes, sin texto incrustado real (usar placeholders técnicos), alta legibilidad, diseño vectorial limpio."
+    },
+    "fig2_arquitectura_sistema.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y flechas. Diagrama de bloques de arquitectura híbrida ground-onboard: rectángulos etiquetados (Segmento Terrestre SSA, Enlace de Comunicaciones, Módulo Onboard, Star Trackers, Decision Engine). Flechas bidireccionales mostrando flujos de datos y comandos. Bloques diferenciados visualmente entre ground y space segments. Estilo IEEE limpio, alineación precisa, sin sombras, sin gradientes, sin texto incrustado real (solo placeholders técnicos), líneas vectoriales nítidas, alta precisión técnica."
+    },
+    "fig3_trayectorias_evasion.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB, gris técnico #4A4A4A y rojo acento para trayectoria propuesta. Diagrama orbital mostrando trayectorias de evasión en plano de conjunción: trayectoria nominal (azul), maniobra ground-based convencional (gris) y maniobra autónoma híbrida (rojo). Curvas suaves con flechas de dirección, ejes X-Y en km relativos al punto de closest approach. Estilo IEEE limpio, líneas vectoriales nítidas, sin sombras, sin gradientes, sin texto incrustado real (solo placeholders técnicos), alta precisión técnica."
+    },
+    "tabla4_consumo_propelente.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y bordes. Tabla IEEE-style comparativa de consumo de propelente con 3 columnas (Enfoque, Δv medio (m/s), Reducción respecto a baseline) y 3 filas de datos técnicos. Bordes limpios, alineación precisa, tipografía técnica clara, estilo profesional académico, sin sombras, sin gradientes, sin texto incrustado real (usar placeholders técnicos), alta legibilidad, diseño vectorial limpio."
+    },
+    "fig6_resumen_arquitectura.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y flechas. Diagrama resumen conceptual que integra arquitectura híbrida, detección onboard y decisión RL. Elementos visuales: bloques ground y space conectados, iconos de star tracker y escudo de seguridad orbital. Estilo IEEE limpio, líneas vectoriales nítidas, sin sombras, sin gradientes, sin texto incrustado real (solo placeholders técnicos), composición equilibrada y profesional."
+    }
+}

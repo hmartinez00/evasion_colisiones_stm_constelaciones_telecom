@@ -1,0 +1,42 @@
+\section{Introducción}
+
+\subsection{1.1 Motivación y Problema de Investigación}
+
+Particularmente llamativo resulta observar cómo el espacio cercano a la Tierra ha pasado, en menos de una década, de ser un entorno relativamente despejado a un escenario de alta densidad operativa. El despliegue acelerado de mega-constelaciones en órbita baja terrestre (LEO) para prestar servicios de telecomunicaciones ha generado un incremento sin precedentes en el número de objetos activos y, con ello, en el riesgo de colisiones.
+
+Aunque los sistemas tradicionales de \emph{conjunction assessment} han demostrado utilidad, tienden a mostrar limitaciones importantes cuando se enfrentan a escenarios con miles de satélites maniobrando de forma coordinada. El programa NASA Conjunction Assessment Risk Analysis (CARA) representa todavía el estándar de referencia para evaluaciones ground-based \cite{nasa_cara}. No obstante, su dependencia de actualizaciones periódicas y coordinación centralizada plantea interrogantes sobre su escalabilidad ante constelaciones que superan las diez mil unidades.
+
+Resulta revelador el análisis de parámetros de fase en constelaciones como Starlink y Kuiper. Liang et al. cuantificaron cómo el parámetro de phasing $F$ influye directamente en las distancias mínimas entre satélites de diferentes planos orbitales, revelando configuraciones donde las separaciones mínimas caen por debajo de umbrales críticos en ciertos rangos de latitud \cite{liang2021phasing}. Estos hallazgos subrayan que, lejos de ser un problema marginal, la evasión intra-constelacional exige enfoques más sofisticados que los meros ajustes de fase estáticos.
+
+La presión operativa se refleja en números elocuentes. En periodos recientes, una sola constelación ha ejecutado decenas de miles de maniobras de evasión cada seis meses. Esta frecuencia no solo consume propelente valioso, sino que genera incertidumbre sobre la sostenibilidad a largo plazo de las operaciones en LEO.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig1_evolucion_objetos_leo.png}
+\caption{Evolución del número de objetos catalogados en órbita baja terrestre (LEO) desde 1957 hasta 2025. Se destacan los periodos de despliegue masivo de mega-constelaciones (fuente: datos públicos NASA/ESA/USSPACECOM).}
+\label{fig:evolucion_leo}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Estadísticas recientes de maniobras de evasión en mega-constelaciones LEO (periodos semestrales reportados).}
+\label{tab:maniobras_evasion}
+\begin{tabular}{lcc}
+\toprule
+Operador & Periodo & Maniobras aproximadas \\
+\midrule
+Starlink (Gen1+Gen2) & Dic 2024 -- May 2025 & 144\,400 \\
+Starlink & Periodos previos 2024 & \textasciitilde50\,000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{1.2 Contribuciones del Trabajo}
+
+Lejos de limitarse a una revisión más del estado del arte, este trabajo propone una arquitectura híbrida ground-onboard que busca cerrar brechas críticas de autonomía y tiempo de respuesta. Particularmente, se integra la capacidad de detección cercana mediante star trackers embarcados, tal como exploran estudios recientes que demuestran la viabilidad técnica de repurposear estos sensores para identificar objetos en riesgo de colisión con antelación suficiente \cite{campiti2025detectability}.
+
+La principal contribución radica en un marco de decisión autónoma que combina predicción probabilística avanzada con optimización de maniobras en tiempo real, minimizando tanto el riesgo de colisión como el consumo de recursos. Esta aproximación no pretende reemplazar los sistemas centralizados existentes, sino complementarlos, ofreciendo una capa adicional de resiliencia cuando la latencia de comunicaciones o la saturación de datos comprometan las evaluaciones tradicionales.
+
+\subsection{1.3 Estructura del Artículo}
+
+El resto del documento se organiza de la siguiente manera. La Sección 2 revisa en profundidad el estado del arte en Space Situational Awareness, algoritmos de evasión y casos reales de constelaciones comerciales. La Sección 3 detalla la metodología propuesta, incluyendo la arquitectura del sistema y los modelos de decisión. En la Sección 4 se presentan los resultados de simulación en escenarios de alta fidelidad, seguidos de la discusión de implicaciones operativas y limitaciones en la Sección 5. Finalmente, la Sección 6 sintetiza conclusiones y sugiere líneas de investigación futura.

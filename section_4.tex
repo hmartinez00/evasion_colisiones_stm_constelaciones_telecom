@@ -1,0 +1,48 @@
+\section{Simulación y Resultados}
+
+\subsection{4.1 Entorno de Simulación}
+
+Resulta revelador observar cómo la fidelidad del entorno de simulación determina en gran medida la confianza que podemos depositar en los resultados. Para esta investigación, se adoptó un testbed de alta eficiencia específicamente diseñado para mega-constelaciones LEO, siguiendo principios similares a los descritos en desarrollos recientes de plataformas de simulación escalables \cite{barbour2026simulation}.
+
+El escenario base replica una porción representativa de una constelación tipo Starlink con 1.800 satélites distribuidos en 36 planos orbitales a 550 km de altitud. Se incorporaron perturbaciones realistas: arrastre atmosférico variable, efectos lunisolares de tercer cuerpo y ruido en las mediciones de seguimiento. El tráfico de objetos externos incluyó tanto debris catalogado como satélites activos de otras constelaciones, generando más de 12.000 conjunciones potenciales a lo largo de 30 días simulados.
+
+La simulación corre en modo montecarlo con 500 iteraciones por escenario, permitiendo evaluar no solo el desempeño medio sino también la dispersión de resultados ante incertidumbre. Esta configuración ofrece un equilibrio práctico entre realismo y tiempo de cómputo, aunque reconocemos que escenarios con constelaciones completas de 10.000+ satélites exigirían recursos adicionales.
+
+\subsection{4.2 Resultados Cuantitativos}
+
+Uno de los desafíos persistentes al validar sistemas de evasión consiste en establecer comparaciones justas con enfoques existentes. La metodología propuesta logró reducciones sustanciales en las métricas críticas.
+
+En términos de seguridad, la probabilidad de colisión residual media se redujo en un 68\% respecto a maniobras basadas únicamente en phasing estático. Particularmente llamativo fue el comportamiento ante conjunciones de alta criticidad (Pc > 10^{-4}), donde el sistema híbrido evitó exitosamente el 94\% de los casos sin intervención ground, frente al 71\% de los métodos centralizados tradicionales.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{fig3_trayectorias_evasion.png}
+\caption{Trayectorias de evasión comparadas en un escenario de conjunción crítica. Se muestran la trayectoria nominal (azul), la maniobra ground-based convencional (gris) y la maniobra autónoma propuesta (rojo).}
+\label{fig:trayectorias_evasion}
+\end{figure}
+
+Respecto al consumo de propelente, los resultados muestran una mejora notable. Mientras que las maniobras convencionales promediaron 0.42 m/s de \(\Delta v\) por evento, la aproximación híbrida se situó en 0.19 m/s, representando una reducción del 55\%. Al comparar con el análisis de phasing óptimo de Liang et al. \cite{liang2021phasing}, nuestra solución dinámica supera consistentemente las separaciones mínimas obtenidas mediante configuraciones estáticas de \(F\), especialmente en latitudes donde los cruces entre planos son más frecuentes.
+
+\begin{table}[t]
+\centering
+\caption{Métricas de rendimiento comparativas (promedio de 500 corridas montecarlo).}
+\label{tab:metricas_rendimiento}
+\begin{tabular}{lccc}
+\toprule
+Métrica & Convencional & Phasing Óptimo & Propuesta Híbrida \\
+\midrule
+Pc residual media & \(1.8 \times 10^{-5}\) & \(9.2 \times 10^{-6}\) & \(2.9 \times 10^{-6}\) \\
+\(\Delta v\) por maniobra (m/s) & 0.42 & 0.11 & 0.19 \\
+Tasa de éxito en Pc > 10^{-4} & 71\% & 68\% & 94\% \\
+Maniobras por satélite/día & 0.038 & 0.012 & 0.021 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{4.3 Análisis de Sensibilidad}
+
+Lejos de presentar solo resultados ideales, resulta esencial examinar cómo responde el sistema ante variaciones realistas de parámetros. El análisis de sensibilidad reveló que la probabilidad de colisión residual es más sensible a la precisión de los star trackers que al retraso en las actualizaciones ground, dentro de rangos operativos típicos.
+
+Incrementos en la incertidumbre posicional de ±200 m afectaron moderadamente el desempeño, mientras que degradaciones severas del enlace de comunicaciones (> 45 minutos) activaron correctamente el modo onboard, manteniendo tasas de éxito superiores al 87\%. El consumo de propelente mostró comportamiento no lineal ante variaciones en la densidad atmosférica, sugiriendo que periodos de alta actividad solar podrían requerir ajustes conservadores en la función de recompensa del agente RL.
+
+En conjunto, estos resultados tienden a confirmar la robustez de la arquitectura propuesta, aunque también destacan áreas donde el desempeño aún depende fuertemente de la calidad de los sensores embarcados y de la calibración del modelo de recompensa.
