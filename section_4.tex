@@ -12,7 +12,7 @@ La simulación corre en modo montecarlo con 500 iteraciones por escenario, permi
 
 Uno de los desafíos persistentes al validar sistemas de evasión consiste en establecer comparaciones justas con enfoques existentes. La metodología propuesta logró reducciones sustanciales en las métricas críticas.
 
-En términos de seguridad, la probabilidad de colisión residual media se redujo en un 68\% respecto a maniobras basadas únicamente en phasing estático. Particularmente llamativo fue el comportamiento ante conjunciones de alta criticidad (Pc > 10^{-4}), donde el sistema híbrido evitó exitosamente el 94\% de los casos sin intervención ground, frente al 71\% de los métodos centralizados tradicionales.
+En términos de seguridad, la probabilidad de colisión residual media se redujo en un 68\% respecto a maniobras basadas únicamente en phasing estático. Particularmente llamativo fue el comportamiento ante conjunciones de alta criticidad $Pc > 10^{-4}$, donde el sistema híbrido evitó exitosamente el 94\% de los casos sin intervención ground, frente al 71\% de los métodos centralizados tradicionales.
 
 \begin{figure}[t]
 \centering
@@ -21,9 +21,9 @@ En términos de seguridad, la probabilidad de colisión residual media se redujo
 \label{fig:trayectorias_evasion}
 \end{figure}
 
-Respecto al consumo de propelente, los resultados muestran una mejora notable. Mientras que las maniobras convencionales promediaron 0.42 m/s de \(\Delta v\) por evento, la aproximación híbrida se situó en 0.19 m/s, representando una reducción del 55\%. Al comparar con el análisis de phasing óptimo de Liang et al. \cite{liang2021phasing}, nuestra solución dinámica supera consistentemente las separaciones mínimas obtenidas mediante configuraciones estáticas de \(F\), especialmente en latitudes donde los cruces entre planos son más frecuentes.
+Respecto al consumo de propelente, los resultados muestran una mejora notable. Mientras que las maniobras convencionales promediaron 0.42 m/s de $\Delta v$ por evento, la aproximación híbrida se situó en 0.19 m/s, representando una reducción del 55\%. Al comparar con el análisis de phasing óptimo de Liang et al. \cite{liang2021phasing}, nuestra solución dinámica supera consistentemente las separaciones mínimas obtenidas mediante configuraciones estáticas de $F$, especialmente en latitudes donde los cruces entre planos son más frecuentes.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \caption{Métricas de rendimiento comparativas (promedio de 500 corridas montecarlo).}
 \label{tab:metricas_rendimiento}
@@ -31,13 +31,13 @@ Respecto al consumo de propelente, los resultados muestran una mejora notable. M
 \toprule
 Métrica & Convencional & Phasing Óptimo & Propuesta Híbrida \\
 \midrule
-Pc residual media & \(1.8 \times 10^{-5}\) & \(9.2 \times 10^{-6}\) & \(2.9 \times 10^{-6}\) \\
-\(\Delta v\) por maniobra (m/s) & 0.42 & 0.11 & 0.19 \\
-Tasa de éxito en Pc > 10^{-4} & 71\% & 68\% & 94\% \\
+Pc residual media & $1.8 \times 10^{-5}$ & $9.2 \times 10^{-6}$ & $2.9 \times 10^{-6}$ \\
+$\Delta v$ por maniobra (m/s) & 0.42 & 0.11 & 0.19 \\
+Tasa de éxito en $Pc > 10^{-4}$ & 71\% & 68\% & 94\% \\
 Maniobras por satélite/día & 0.038 & 0.012 & 0.021 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{4.3 Análisis de Sensibilidad}
 
